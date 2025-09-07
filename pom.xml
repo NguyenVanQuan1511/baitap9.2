@@ -3,40 +3,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>vn.edu.hcmuaf.fit</groupId>
-    <artifactId>demo4</artifactId>
+    <groupId>vn.edu.hcmute.fit.bai9</groupId>
+    <artifactId>bai9</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <jakarta.servlet.version>5.0.0</jakarta.servlet.version> <!-- Jakarta EE 9 -->
-        <jakarta.jsp.version>3.0.0</jakarta.jsp.version> <!-- Jakarta EE 9 -->
-        <jstl.version>3.0.1</jstl.version> <!-- Implementation -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <!-- Jakarta Servlet API -->
+        <!-- Jakarta EE API (phù hợp với Tomcat 11) -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
-            <version>${jakarta.servlet.version}</version>
+            <version>5.0.0</version> <!-- Ou la version compatible avec Tomcat 11 -->
             <scope>provided</scope>
         </dependency>
-        <!-- Jakarta JSP API -->
         <dependency>
             <groupId>jakarta.servlet.jsp</groupId>
             <artifactId>jakarta.servlet.jsp-api</artifactId>
-            <version>${jakarta.jsp.version}</version>
+            <version>3.0.0</version>
             <scope>provided</scope>
-        </dependency>
-        <!-- Jakarta JSTL Implementation (chỉ cần implementation) -->
-        <dependency>
-            <groupId>org.glassfish.web</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-            <version>${jstl.version}</version>
-            <scope>provided</scope> <!-- Đánh dấu provided nếu server cung cấp, đổi thành compile nếu cần runtime -->
         </dependency>
     </dependencies>
 
@@ -45,25 +36,18 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>3.3.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.10.1</version>
                 <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                </configuration>
-            </plugin>
-            <!-- Plugin chạy Tomcat (tùy chọn) -->
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat9-maven-plugin</artifactId>
-                <version>3.0.2</version>
-                <configuration>
-                    <path>/demo4</path>
-                    <port>8080</port>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
         </plugins>
