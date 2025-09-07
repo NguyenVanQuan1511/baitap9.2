@@ -1,34 +1,66 @@
-/* styles.css */
+/* src/main/webapp/css/styles.css */
+
 body {
     font-family: Arial, sans-serif;
+    margin: 20px;
     background-color: #f4f4f4;
     color: #333;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa theo chiều ngang */
+    min-height: 100vh;
 }
 
-h1, h2 {
-    color: #2c3e50;
+/* Tiêu đề chính - to hơn và đậm hơn */
+h3 {
+    color: #1abca9;
+    border-bottom: 3px solid #1abca9; /* Viền dày hơn */
+    padding-bottom: 8px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 25px auto;
+    font-size: 28px; /* To hơn */
+    font-weight: bold; /* Đậm hơn */
+    text-transform: uppercase; /* Chữ in hoa */
+    letter-spacing: 1px; /* Giãn cách chữ */
+}
+
+/* Tiêu đề các trang khác (CD List, Checkout Page, etc.) */
+h2 {
+    color: #1abca9;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 auto 30px auto;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
 table {
-    width: 80%;
-    margin: 20px auto;
     border-collapse: collapse;
+    margin: 20px 0;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); /* Shadow đậm hơn */
+    width: auto;
+    max-width: 900px; /* Rộng hơn một chút */
 }
 
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
+/* Tiêu đề bảng - to và đậm hơn */
 th {
-    background-color: #3498db;
+    background-color: #1abca9;
     color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    white-space: nowrap;
 }
 
 tr:nth-child(even) {
@@ -36,85 +68,115 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-    background-color: #e0f7fa;
+    background-color: #e0f2f0;
 }
 
-form {
-    margin: 20px auto;
-    width: 50%;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-input[type="text"] {
-    padding: 8px;
-    margin: 5px 0;
-    width: 70%;
-    border: 1px solid #ccc;
+input[type="number"], input[type="text"] {
+    padding: 6px;
+    margin: 0 5px 0 0;
+    border: 2px solid #1abca9; /* Viền dày hơn */
     border-radius: 4px;
+    color: #333;
+    width: 65px; /* Rộng hơn một chút */
+    vertical-align: middle;
+    font-size: 14px;
 }
 
-input[type="submit"] {
-    padding: 10px 20px;
-    background-color: #2ecc71;
+input[type="submit"], button {
+    padding: 6px 12px;
+    background-color: #1abca9;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    vertical-align: middle;
+    margin: 0 5px;
+    font-weight: bold; /* Chữ đậm */
+    font-size: 14px;
 }
 
-input[type="submit"]:hover {
-    background-color: #27ae60;
+input[type="submit"]:hover, button:hover {
+    background-color: #148f77; /* Màu hover đậm hơn */
+    transform: translateY(-1px); /* Hiệu ứng nổi */
 }
 
 a {
-    color: #3498db;
     text-decoration: none;
-    margin: 0 10px;
+    color: #1abca9;
+    margin-right: 15px;
+    font-weight: bold; /* Liên kết đậm */
+    font-size: 16px;
 }
 
 a:hover {
     text-decoration: underline;
+    color: #148f77;
+    text-decoration-thickness: 2px; /* Gạch chân dày hơn */
+}
+
+form {
+    margin: 0;
+    display: inline;
+}
+
+label {
+    margin-right: 10px;
+    color: #333;
+    font-weight: bold; /* Nhãn đậm */
 }
 
 .error {
-    color: red;
+    color: #1abca9;
     font-weight: bold;
+    margin-top: 10px;
+    font-size: 16px;
 }
 
-/* Thêm vào cuối styles.css */
-.cookie-table th {
-    background-color: #e67e22; /* Màu cam nhạt cho bảng cookie */
+/* Container để căn giữa bảng */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-.cookie-table tr:hover {
-    background-color: #fcebe6; /* Màu nền hover khác biệt */
+/* Căn chỉnh các phần tử dưới bảng */
+.cart-actions {
+    text-align: center;
+    margin-top: 25px;
 }
 
-p {
-    margin: 10px 0;
-    line-height: 1.5;
+.cart-message {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: 500;
 }
 
-.notification {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #ecf0f1;
-    border-radius: 4px;
-    display: inline-block;
+/* Style cho trang CD List */
+.product-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
 }
 
-@media (max-width: 600px) {
-    table, form {
-        width: 100%;
-    }
-    input[type="text"] {
-        width: 90%;
-    }
-    th, td {
-        padding: 8px;
-        font-size: 14px;
-    }
+.product-price {
+    font-weight: bold;
+    color: #1abca9;
+    font-size: 16px;
+}
+
+/* Style cho trang checkout */
+.checkout-total {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1abca9;
+}
+
+.payment-form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 2px solid #1abca9;
 }

@@ -1,33 +1,37 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
-    <title>Welcome</title>
+    <title>The Index page</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
-<h1>Welcome to the Download Application</h1>
-<c:if test="${not empty cookie['firstName']}">
-    <p>Welcome back, <c:out value="${cookie['firstName'].value}" escapeXml="true"/></p>
-</c:if>
-<a href="register.jsp">Register</a> | <a href="cookies.jsp">View Cookies</a>
-<br><br>
-<h2>Product List</h2>
-<table>
+<h3>CD List</h3>
+<table border="1">
     <tr>
-        <th>ID</th>
-        <th>Name</th>
+        <th>Description</th>
         <th>Price</th>
+        <th>Action</th>
     </tr>
-    <c:forEach var="product" items="${products}">
-        <tr>
-            <td><c:out value="${product.id}" escapeXml="true"/></td>
-            <td><c:out value="${product.name}" escapeXml="true"/></td>
-            <td><c:out value="${product.price}" escapeXml="true"/></td>
-        </tr>
-    </c:forEach>
+    <tr>
+        <td>86 (the band) - True Life Songs and Pictures</td>
+        <td>$14.95</td>
+        <td><a href="${pageContext.request.contextPath}/addToCart?product=86 (the band) - True Life Songs and Pictures">Add To Cart</a></td>
+    </tr>
+    <tr>
+        <td>Paddlefoot - The first CD</td>
+        <td>$12.95</td>
+        <td><a href="${pageContext.request.contextPath}/addToCart?product=Paddlefoot - The first CD">Add To Cart</a></td>
+    </tr>
+    <tr>
+        <td>Paddlefoot - The second CD</td>
+        <td>$14.95</td>
+        <td><a href="${pageContext.request.contextPath}/addToCart?product=Paddlefoot - The second CD">Add To Cart</a></td>
+    </tr>
+    <tr>
+        <td>Joe Rut - Genuine Wood Grained Finish</td>
+        <td>$14.95</td>
+        <td><a href="${pageContext.request.contextPath}/addToCart?product=Joe Rut - Genuine Wood Grained Finish">Add To Cart</a></td>
+    </tr>
 </table>
-<br>
-<a href="${pageContext.request.contextPath}/loadProducts">Refresh Products</a>
 </body>
 </html>

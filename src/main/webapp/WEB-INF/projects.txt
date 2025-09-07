@@ -1,3 +1,0 @@
-Laptop,100
-Phone,50
-Tablet,200
